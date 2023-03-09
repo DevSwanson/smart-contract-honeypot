@@ -9,6 +9,8 @@ So today, let me introduce you some useful tips on How to Create Your Own Honeyp
 
 Full tutorial on how to create honeypot token on https://www.createyourowntoken.net/post/create-your-own-honeypot-token
 
+Full tutorial on how to get users to buy your token on https://www.createyourowntoken.net/post/little-techniques-on-marketing-your-tokens
+
 Any queries?
 
 Contact me on Telegram: https://t.me/devswanson
