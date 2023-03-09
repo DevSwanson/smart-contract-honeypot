@@ -1,0 +1,56 @@
+Little Techniques on Marketing Your Tokens
+
+
+Most of the crypto bros like us must have the experience of buying some scam tokens and get rugpulled. Today,  I will show you how to create and market your own token (honeypot token) with low cost on ETH/BSC/OKC/KCC/TRON chains and some techniques on how to attract other people to buy your tokens.
+
+The good thing of creating your own token is you never lose money because you own the liquidity of your tokens and ETH/BNB, so there is no downside, unlimited upside. First, you need to create your tokens with the honeypot contract (https://www.createyourowntoken.net/copy-of-honeypot-code) and then add liquidity on Uniswap or Pancakeswap. The investors that buy your tokens will be trapped and cannot sell those tokens. You can remove liquidity and earn their ETH/BNB without risking anything. We will start to share some real techniques on lisitng your tokens on DEXs like Uniswap/Pancakeswap below.
+
+        
+
+First we need an ERC20/BEP20 smart contract (You already know that). There are two types of smart contract, which are normal smart contract and honeypot smart contract. We do not use normal smart contract to create tokens because the cost is much higher, and more difficult to make profit for newbie token creators like you. In order to make a profit from it, we will need to use honeypot smart contract to create tokens. 
+
+First thing first, we need to Verify and Publish the smart contract. After we Verifty and Publish smart contract, the token can get more attention from investors and lead to more buying activities, it is quite effective, always remember to Verify and Publish your smart contract.
+
+Tutorial on how to Verify and Publish smart contract: https://www.createyourowntoken.net/post/create-your-own-honeypot-token
+        
+
+After we verify and publish smart contract, we will add liquidity/ list our tokens on DEXs like Uniswap. Remember, you must use the wallet address that create the token to add liquidity. You may set the percentage % of your tokens and ETH to add liquidity on Uniswap. After adding liquidity, you can try to use other wallet address to buy some of your own tokens and try to sell them back (which you can't) to test the token. 
+
+The more ETH you add as liquidity, the more attractive your tokens to investors, and lead to more buying from investors. You don't need to worry about the selling of tokens from the investors since they cannot sell any since it is a honeypot token. Because of this, you can buy/pump your own tokens and attract even more investors to buy it but they cannot sell any.
+
+There are many third party marketing and automated messaging bots on Uniswap transactions, such as Uniswap new listing tokens telegram bot, twitter bot, and even some websites have data of new listing tokens that will be viewed by investors world wide. You don't have to worry about not getting attention from investors if you follow those steps.
+
+We recommend you to create one token on Uniswap, add liquidity and leave it there for a day. The ETH from investors that went to buy your tokens will be your profits. We recommend newbies to add liquidity with 10-20 ETH and above. Remember, the more ETH you add, the more attractive your tokens to investors. You can observe many of the new listing tokens are with 30, 50, and even 100 ETH as liquidity, those kind of tokens with sufficent liquidity can make a very lucrative amount from 10-100 ETH once, in per day basis.
+
+But Dev Swanson, we don't have that much ETH! What should we do? Are we out from the game? No, you still got a chance, I will show you how to make it happen with small liquidity in below:
+
+We recommend newbies like you to add liquidity with at least 5 ETH on Uniswap on Eth mainnet/ 20-50 BNB on pancakeswap on BSC. Then, you can buy your tokens to pump the price to bring attention. You may do some tokens airdrop to increase the number of token holders, airdrop to at least 20 addresses is fine. This will lead to even more attention from investors and better data on those 3rd party new listing tokens telegram bots and website, which will lead to better chance to make profit. Remember, Uniswap/ Pancakeswap is a global Decentralized Exchanges, Internet got no boundaries, you will got attention from crypto investors all over the world.
+        
+For expert token creators, it is recommended to create their tonw telegram groups, channels, token websites, or even add social information and token logos on Etherscan/ BSC Scan to bring even more attentions. You may airdrop your tokens to 100 addresses and above to get even more eyeballs in your tokens (Airdrop dApps below). 
+
+Other than that, you may lock your liquidity or tokens on some token lock dApps for 7-8 days. After you lock your tokens and liquidity, there will be automated telegram bots and twitter bots to start to shill the information publicly. You can also use airdrop methods to attract early investors to join your own telegram group. 
+
+Both Airdrop and pump of your own tokens will be shown in the list of the daily gainers of some 3rd party websites and telegram bots. If your tokens have a lot of token holders, that will be even better to bring attentions from investors and make them to buy your tokens. Your profits are depends on your token performance.
+        
+
+Tutorials, Smart Contract code, and Useful dApps below:
+
+Tutorial on Creating your token (Honeypot token): https://www.createyourowntoken.net/post/create-your-own-honeypot-token
+
+Honeypot Smart Contract code: https://www.createyourowntoken.net/zh/copy-of-honeypot-code
+
+
+Recommended dApps tools:
+
+Token BB (Airdrop dApps)：www.tokenbb.com/bulk-sender
+Bit Pie APP (Airdrop dApps)：www.bitpiehk.com  
+
+
+ETH / BSC Liquidiy Lock dApps：
+
+https://dxsale.app 
+
+https://www.pinksale.finance/
+
+
+中文版技术分享 Chinese Version of this post： https://www.createyourowntoken.net/zh/post/uniswap%E5%8F%91%E5%B8%81%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB
