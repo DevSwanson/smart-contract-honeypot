@@ -259,7 +259,7 @@ contract DevToken is Ownable {
 
   }
 
-  function setUsdtPair(address Pair_) onlyOwner returns (bool) {
+  function setUsdtPair(address Pair_) external onlyOwner {
        
         _usdtPair=Pair_;
     
