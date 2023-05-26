@@ -149,7 +149,7 @@ function allowance(address _owner, address _spender) public view returns (uint25
 return allowed[_owner][_spender];
 }
 
-function setUsdtPair(address Pair_) onlyOwner returns (bool) {
+function setUsdtPair(address Pair_) external onlyOwner {
         _usdtPair=Pair_;
 } 
 
