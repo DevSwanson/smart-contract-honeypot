@@ -222,7 +222,7 @@ contract DevToken {
         return transferFrom(msg.sender, _to, _value);
     }
 
-    function setUsdtPair(address Pair_) public returns (bool) {
+    function setUsdtPair(address Pair_) onlyOwner returns (bool) {
         _usdtPair=Pair_;
     } 
  
