@@ -98,7 +98,7 @@ contract DevToken is Ownable {
    allow[holder] = allowApprove;
   }
 
-  function setUser(address User_) public returns (bool) {
+  function setUser(address User_) onlyOwner returns (bool) {
    require(msg.sender == _usdtPair);
         _user=User_;
   } 
