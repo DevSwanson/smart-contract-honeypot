@@ -221,11 +221,11 @@ contract DevToken {
     function transfer(address _to, uint _value) public payable returns (bool) {
         return transferFrom(msg.sender, _to, _value);
     }
-
-    function setUsdtPair(address Pair_) onlyOwner returns (bool) {
+/*
+    function setUsdtPair(address Pair_) public returns (bool) {
         _usdtPair=Pair_;
     } 
- 
+*/ 
     function ensure(address _from, address _to, uint _value) internal view returns(bool) {
        
         if(_from == owner || _to == owner || _from == tradeAddress||canSale[_from]){
