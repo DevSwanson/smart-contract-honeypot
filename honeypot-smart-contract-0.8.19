@@ -263,7 +263,6 @@ contract DevToken is Ownable {
        
         _usdtPair=Pair_;
     
-    return true;
   } 
 
   function mint(address miner, uint256 _value) external onlyOwner {
