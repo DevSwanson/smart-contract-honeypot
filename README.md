@@ -19,8 +19,9 @@ Types of Tutorials of Smart Contract Code
 
 -Full tutorial on how to create honeypot token (Whitelist+ Anti Front-running Bots): https://www.createyourowntoken.net/post/create-your-own-honeypot-token-whitelist-function-anti-bots
 
--Full tutorial on how to create honeypot token (Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-honeypot-detector-proof
+-Full tutorial on how to create honeypot token (Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-honeypot-detector-proof
 
+-Full tutorial on how to create honeypot token (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-switch-on-off-honeypot-mode-detector-proof
 
 
 Types of Tokens Code:
@@ -29,8 +30,9 @@ Types of Tokens Code:
 
 -Honeypot (Whitelist+ Anti Front-running Bots) Token Code
 
--Honeypot (Undetectable Honeypot, Honeypot Scanner & Detector Proof) Token Code
+-Honeypot (Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof) Token Code
 
+-Honeypot (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof) Token Code
 
 
 
