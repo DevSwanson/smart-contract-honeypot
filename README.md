@@ -1,11 +1,12 @@
 # smart-contract-honeypot
-Tutorial on how to create honeypot tokens
+Tutorial on how to create your own honeypot erc20/ bep20 tokens and listing to Uniswap
 
-Here is Dev Swanson, Ethereum smart contract researcher and enthusiast. I got a lot of requests from fans for me to discover honey pot tokens, which are tokens that are cannot be sold after being purchased.
+Here is Dev Swanson again, Ethereum smart contract researcher and enthusiast. I got a lot of requests from fans for me to discover honey pot tokens, which are tokens that are cannot be sold after being purchased.
 
 So today, let me introduce you some useful tips on How to Create Your Own Honeypot Token. Are you ready?
 
 [Only for research and testing, don’t try to scam using this method]
+
 
 Full tutorial on how to create honeypot token on https://www.createyourowntoken.net/post/create-your-own-honeypot-token
 
@@ -23,6 +24,8 @@ Types of Tutorials of Smart Contract Code
 
 -Full tutorial on how to create honeypot token (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-switch-on-off-honeypot-mode-detector-proof
 
+-### Special Edition ### Full Tutorial on how to create normal meme token (Non-Honeypot, Normal Meme Token like Pepe Token): https://www.createyourowntoken.net/post/create-your-own-meme-token-like-pepe-normal-token-not-honeypot
+
 
 Types of Tokens Code:
 
@@ -34,6 +37,7 @@ Types of Tokens Code:
 
 -Honeypot (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof) Token Code
 
+-Non Honeypot (Non-Honeypot, Safe to Trade and Invest, Normal Meme Token like Pepe Token) Token Code
 
 
 Learn How to Attract People to Buy Your Tokens: https://www.createyourowntoken.net/post/little-techniques-on-marketing-your-tokens 
@@ -47,3 +51,6 @@ Any queries?
 My website: https://www.createyourowntoken.net/
 
 Contact me on Telegram: https://t.me/devswanson
+
+
+
