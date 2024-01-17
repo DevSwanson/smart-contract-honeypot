@@ -28,7 +28,7 @@ Types of Tutorials of Smart Contract Code
 
 -### Special Edition ### Full Tutorial on how to create normal meme token (Non-Honeypot, Normal Meme Token like Pepe Token): https://www.createyourowntoken.net/post/create-your-own-meme-token-like-pepe-normal-token-not-honeypot
 
--### Special Edition ### Full Tutorial on how to create normal meme token with unlimited supply printing function (Non-Honeypoy, Normal Meme Token, with Unlimited Token Supply Printing Function): https://www.createyourowntoken.net/post/create-your-own-meme-token-with-unlimited-supply-printing-normal-token-not-honeypot-with-unlimite
+-### Special Edition ### Full Tutorial on how to create normal meme token with unlimited supply printing function (Non-Honeypot, Normal Meme Token, with Unlimited Token Supply Printing Function): https://www.createyourowntoken.net/post/create-your-own-meme-token-with-unlimited-supply-printing-normal-token-not-honeypot-with-unlimite
 
 
 
