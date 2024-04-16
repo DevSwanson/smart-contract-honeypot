@@ -1,6 +1,3 @@
-Little Techniques on Marketing Your Tokens
-
-
 Most of the crypto bros like us must have the experience of buying some scam tokens and get rugpulled. Today,  I will show you how to create and market your own token (honeypot token) with low cost on ETH/BSC/Arbitrum/BASE/KCC/OKC chains and some techniques on how to attract other people to buy your tokens.
 
 The good thing of creating your own token is you never lose money because you own the liquidity of your tokens and ETH/BNB, so there is no downside, unlimited upside. First, you need to create your tokens with the honeypot contracts, few examples below:
@@ -15,10 +12,19 @@ Types of Tutorials of Smart Contract Code
 
 -Full tutorial on how to create honeypot token (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-switch-on-off-honeypot-mode-detector-proof 
 
+-Full tutorial on how to create honeypot token (Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot): https://www.createyourowntoken.net/post/create-your-honeypot-token-whitelist-switch-on-off-honeypot-mode-detector-proof
+
+-Full tutorial on how to create honeyot token (Upgraded Version V2 Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-upgraded-version-v2-blacklist-honeypot-detector-proof
+
 
 Then we need to add liquidity on Uniswap or Pancakeswap. The investors that buy your tokens will be trapped and cannot sell those tokens. You can remove liquidity and earn their ETH/BNB without risking anything. 
 
-Learn How to Add/Remove Liquidity in Pancakeswap: https://www.createyourowntoken.net/post/how-to-add-remove-liquidity-in-pancakeswap-binance-smart-chain 
+If you are using Pancakeswap on Binance Smart Chain, you can read this guide on how to add liquidity in Pancakeswap V2 or V3 (If you don't see V2 options in Pancakeswap, may choose to use V3)
+
+*How to Add Liquidity in Pancakeswap V2: https://www.createyourowntoken.net/post/how-to-add-remove-liquidity-in-pancakeswap-binance-smart-chain 
+
+*How to Add Liquidity in Pancakeswap V3: https://www.createyourowntoken.net/post/how-to-add-remove-liquidity-in-pancakeswap-v3-binance-smart-chain
+
 
 We will start to share some real techniques on listing your tokens on DEXs like Uniswap/Pancakeswap below.
 
@@ -38,13 +44,23 @@ Tutorial on how to Verify and Publish smart contract (Guidelines are inside each
 -Full tutorial on how to create honeypot token (Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-honeypot-detector-proof 
 
 -Full tutorial on how to create honeypot token (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-switch-on-off-honeypot-mode-detector-proof 
-      
+
+-Full tutorial on how to create honeypot token (Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot): https://www.createyourowntoken.net/post/create-your-honeypot-token-whitelist-switch-on-off-honeypot-mode-detector-proof
+
+-Full tutorial on how to create honeyot token (Upgraded Version V2 Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-upgraded-version-v2-blacklist-honeypot-detector-proof        
+
 
 After we verify and publish smart contract, we will add liquidity/ list our tokens on DEXs like Uniswap. Remember, you must use the wallet address that create the token to add liquidity. You may set the percentage % of your tokens and ETH to add liquidity on Uniswap. After adding liquidity, you can try to use other wallet address to buy some of your own tokens and try to sell them back (which you can't) to test the token. 
 
 Normally we will add 80%-100% of the tokens that we created into the liquidity pool paired with ETH in order to gain more trusts and confidence from investors. For example, if you had created 1,000,000 of tokens, we suggest you to add 80%-100% of those tokens as liquidity in order to gain more credibility from investors because they will feel more secure to buy tokens that got lesser or no supply outside the liquidity pool.
 
 The more ETH you add as liquidity, the more attractive your tokens to investors, and lead to more buying from investors. You don't need to worry about the selling of tokens from the investors since they cannot sell any since it is a honeypot token. Because of this, you can buy/pump your own tokens and attract even more investors to buy it but they cannot sell any.
+
+*Things to do when pumping tokens: Set low slippage (0.1%-0.5%) on Pancakeswap/ Uniswap*
+
+1)Click on setting on the Pancakeswap/ Uniswap
+
+2)Set your slippage to low amount. Recommend to use 0.1%-0.5% in order to avoid front-running bots entry.
 
 
 
@@ -110,7 +126,45 @@ Both Airdrop and pump of your own tokens will be shown in the list of the daily 
 
 *Things about time frame/timing of  your tokens: Timing of token listing is very important. Good timing can lead to more traffic/users to buy tokens. You may try and find good timing in your own timezone, find a time frame that are suitable for you to list your tokens to be effective. 
 
-Basicall, we will perform some pumps on our own tokens slowly, leave it for 30 minutes or 1 hour, then we will pump it again. After we do enough pumping, we will leave it at least for 7-8 hours, 1-2 days is the best.
+Basically, we will perform some pumps on our own tokens slowly, leave it for 30 minutes or 1 hour, then we will pump it again. After we do enough pumping, we will leave it at least for 7-8 hours, 1-2 days is the best. The reason for increasing the time frame on your tokens are super important, because the longer the timeframe, the higher chances it can get more buyers (which mean it can capture more liquidity that are available in the market).
+
+We do not advise you to do quick token launching (like adding & remove liquidity within 5-30 minutes) because the logic is simple, how can a super short timeframe like between 5-30 minutes can bring any good amount of buyers? The answer is not that good, you will likely get no buyers at all because the timeframe you give the market is too short for the market to response, buyers can’t even have enough time to take action to your new launch tokens.
+
+We advise you to increase the timeframe of your tokens by simply add liquidity, make some pumps, do some works on the social media profile and websites of your tokens, interact with potential buyers on Telegram/ Twitter and other platforms. Then *Leave your tokens like for 1 day or few days, in order to let the market and buyers have the time to notice and take actions in your tokens, Let the Time Work for You, Not Against You.
+
+If you think 1 day is too long, maybe you can do half a day, which mean you can launch 2 tokens in a day (12 hours timeframe for each token)
+
+Always remember, if you create a lot of different tokens in a day, it doesn’t bring you more buyers, it will only cost you more gas fee, and you may lose portion of your capitals by frequently doing token launching that brings no results. 
+
+We do not advise you to create and launch more than 3 tokens in a day because the market & buyers aren’t an unlimited pool of money, it takes time to refill and rest like a human do.
+
+
+*Beware of your “Frequent Token Creating” Syndrome and “Instant Gratification” mindset:
+
+Creating a token & launching it seems like a pretty good way to generate incomes without substantial risks of losing your capitals. For example, Crypto Trading is a very risky way to generate incomes because you may lose portion of your capitals to do trading, but Token Launching is not as risky as Trading at all. 
+
+But many people still manage to go broke, lose tonnes of money by Creating & Launching a token, Why is That?
+
+Becuz of the “Instant Gratification” mindset, lead to “Frequent Token Creating” Syndrome. 
+
+It can be explained as: People (Most of them are Crypto Bros, and they are extremely greedy) view token creating as a way to get rich quick, fast money making scheme that can make them a lot of money in ultra short period of time.
+
+First, they do research on naming tokens, create and test their tokens, then they launch it with their own timing and strategies, and they wait it for buyers patiently. Some of the tokens may get some buys, and some don’t get any buys. 
+
+If they success to get some buyers, they will quickly create another tokens and launch it, but now they are launching the tokens without proper timing and researching. Most of them will launch the tokens in hurry, now the Greed kicks in. They didn’t wait patiently enough this time for the buyers to take action like they did in their first token launch because they think they will get the same results without doing any homework and strategies. 
+
+Most of the time, they will get little buyers or no buyers at all because of lacking patience and other important factors like token name, timing and marketing strategies. Most of them will not realize what they did wrong and wondering why the same processes didn’t bring the same outcomes. 
+
+Then they keep creating new tokens and launching, sometimes they will create maybe 10 different tokens in a day. Sometimes each token life span from adding to removing liquidity is within 5-10 minutes, which are pretty bad and costly. If you are launching your token in Ethereum Mainnet, gas fees are not cheap, sometimes around $100-$300. You may imagine how expensive the gas fee it will be, if you are launching 5 tokens within a day in Ethereum Mainnet (5 X $300 = $1500).
+
+Greed (Instant Gratification) lead to Bad Decisions Making (bad research & timing & strategies, lacking patience), then lead to Frequent Token Creating, at last leading to Losing Capitals (Suffering financial losses, or worst, go broke, due to paying heavy gas fee)
+
+
+Solutions for those above problems? Here you go:
+
+We advise you to increase the timeframe of your tokens by simply add liquidity, make some pumps, do some works on the social media profile and websites of your tokens, interact with potential buyers on Telegram/ Twitter and other platforms. Then *Leave your tokens like for 1 day or few days, in order to let the market and buyers have the time to notice and take actions in your tokens, Let the Time Work for You, Not Against You.
+
+Always remember, if you create a lot of different tokens in a day, it doesn’t bring you more buyers, it will only cost you more gas fee, and you may lose portion of your capitals by frequently doing token launching that brings no results. We do not advise you to create and launch more than 3 tokens in a day because the market & buyers aren’t an unlimited pool of money, it takes time to refill and rest like a human do.
         
 
 Tutorials, Smart Contract code, and Useful dApps below:
@@ -122,6 +176,10 @@ Full tutorial on how to create honeypot token: https://www.createyourowntoken.ne
 -Full tutorial on how to create honeypot token (Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-honeypot-detector-proof 
 
 -Full tutorial on how to create honeypot token (Switch On/Off Honeypot Mode + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-switch-on-off-honeypot-mode-detector-proof 
+
+-Full tutorial on how to create honeypot token (Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot): https://www.createyourowntoken.net/post/create-your-honeypot-token-whitelist-switch-on-off-honeypot-mode-detector-proof
+
+-Full tutorial on how to create honeyot token (Upgraded Version V2 Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-upgraded-version-v2-blacklist-honeypot-detector-proof
 
 
 Recommended Airdrop dApps tools:
@@ -136,7 +194,7 @@ Dxsale: https://dxsale.app
 Pinksale: https://www.pinksale.finance/
 
 
+
 Original post: https://www.createyourowntoken.net/post/little-techniques-on-marketing-your-tokens
 
 中文版技术分享 Chinese Version of this post： https://www.createyourowntoken.net/zh/post/uniswap%E5%8F%91%E5%B8%81%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB 
-
