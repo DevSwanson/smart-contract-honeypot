@@ -26,7 +26,9 @@ Types of Tutorials of Smart Contract Code
 
 -Full tutorial on how to create honeypot token (Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot): https://www.createyourowntoken.net/post/create-your-honeypot-token-whitelist-switch-on-off-honeypot-mode-detector-proof
 
--Full tutorial on how to create honeyot token (Upgraded Version V2 Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-upgraded-version-v2-blacklist-honeypot-detector-proof
+-Full tutorial on how to create honeypot token (Upgraded Version V2 Blacklist + Undetectable Honeypot, Honeypot Scanner & Detector Proof): https://www.createyourowntoken.net/post/create-your-honeypot-token-upgraded-version-v2-blacklist-honeypot-detector-proof
+
+-Full tutorial on how to create honeypot token (Upgraded Version V2 Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot): https://www.createyourowntoken.net/post/create-your-honeypot-token-upgraded-version-v2-whitelist-switch-on-off-honeypot-mode-detector-p
 
 -### Special Edition ### Full Tutorial on how to create normal meme token (Non-Honeypot, Normal Meme Token like Pepe Token): https://www.createyourowntoken.net/post/create-your-own-meme-token-like-pepe-normal-token-not-honeypot
 
@@ -51,6 +53,8 @@ Types of Tokens Code:
 -Honeypot (Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot) Token Code
 
 -Honeypot (Upgraded V2 Blacklist + UUndetectable Honeypot, Honeypot Scanner & Detector Proof) Token Code
+
+-Honeypot (Upgraded V2 Whitelist + Switch On/Off Honeypot Mode + Undetectable Honeypot) Token Code
 
 -Non Honeypot (Non-Honeypot, Safe to Trade and Invest, Normal Meme Token like Pepe Token) Token Code
 
