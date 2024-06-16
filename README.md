@@ -47,6 +47,8 @@ Types of Tutorials of Smart Contract Code
 
 -### Special Edition ### Full Tutorial on how to create advanced normal meme token with unlimited supply printing function (Upgraded Version V2, Non-Honeypot, Normal Meme Token, with Unlimited Token Supply Printing Function): https://www.createyourowntoken.net/post/create-your-own-meme-token-with-unlimited-supply-printing-upgraded-version-v2-normal-token-not-hon
 
+-### Special Edition ### Full Tutorial on how to create normal low gas fee meme token with automatic ownership renounce function (Not Honeypot, Normal Meme Token, Automatic Ownership Renounce, Low Gas Fee): https://www.createyourowntoken.net/post/create-your-own-low-gas-fee-meme-token-with-automatic-ownership-renounce-normal-token-not-honeypot
+
 
 
 Types of Tokens Code:
@@ -72,6 +74,8 @@ Types of Tokens Code:
 -Non Honeypot (Non-Honeypot, Normal Meme Token with Ownership Renounce Function) Token Code
 
 -Non Honeypot (Upgraded Version V2, Non-Honeypot, Normal Meme Token with Unlimited Token Supply Printing Function) Token Code
+
+-Non Honeypot (Non-Honeypot, Normal Low Gas Fee Meme Token with Automatic Ownership Renounce) Token Code
 
 
 Learn How to Switch Network in Metamask Wallet: https://www.createyourowntoken.net/post/how-to-add-network-and-change-network-in-your-metamask-wallet
