@@ -13,6 +13,12 @@ Full tutorial on how to create honeypot token on https://www.createyourowntoken.
 Full tutorial on how to get users to buy your token on https://www.createyourowntoken.net/post/little-techniques-on-marketing-your-tokens
 
 
+###Special Edition### Solana Token（How to Add & Remove Liquidity in Raydium, Block Transfer & Blacklist Buyers, Print Token Supply）
+
+###View Full Tutorial on Create Your Own Token in Solana Network: https://www.createyourowntoken.net/post/create-your-own-token-in-solana-network-add-remove-liquidity-blacklist-buyers-print-token-suppl
+
+
+
 Learn How to Add & Remove Liquidity in different Decentralized Exchanges:
 
 How to Add & Remove Liquidity in Uniswap (Ethereum mainnet, Base network, Arbitrum, and many others): https://www.createyourowntoken.net/post/how-to-add-remove-liquidity-in-uniswap-ethereum-mainnet-base-network-arbitrum-and-many-others
